@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Frequently Asked Questions — MUZI Music</title>
+  <meta content="Frequently Asked Questions for MUZI Music - Ad-free open-source music sanctuary." name="description"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link rel="icon" type="image/png" href="assets/logo/muzi_logo.png" />
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/>
+  <link href="https://cdn.prod.website-files.com/696173cb00865d1b386e4af8/css/aardvark-book-club.webflow.shared.168a29904.min.css" rel="stylesheet" type="text/css"/>
+  <style>
+    :root {
+      --muzi-bg: #1a0f33;
+      --muzi-card-bg: rgba(36, 22, 69, 0.75);
+      --muzi-border: rgba(255, 255, 255, 0.12);
+      --muzi-gold: #f9a220;
+      --muzi-pink: #ff1e8c;
+      --muzi-cyan: #00e5ff;
+      --muzi-text: #e0d8f5;
+      --muzi-text-muted: rgba(255, 255, 255, 0.65);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      background-color: var(--muzi-bg);
+      color: var(--muzi-text);
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Subpage Nav */
+    .subpage-header {
+      background: rgba(26, 15, 51, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--muzi-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 0;
+    }
+    .subpage-nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .subpage-logo-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .subpage-logo {
+      width: 140px;
+      height: auto;
+    }
+    .subpage-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .subpage-home-btn {
+      color: var(--muzi-text-muted);
+      text-decoration: none;
+      font-size: 0.9em;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.2s ease;
+    }
+    .subpage-home-btn:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .subpage-dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--muzi-gold);
+      color: #1a0f33;
+      padding: 8px 18px;
+      border-radius: 24px;
+      font-weight: 700;
+      font-size: 0.88em;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .subpage-dl-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(249, 162, 32, 0.35);
+    }
+
+    /* Main Container */
+    .subpage-container {
+      max-width: 900px;
+      margin: 40px auto 80px auto;
+      padding: 0 24px;
+    }
+
+    /* Hero / Header Card */
+    .subpage-hero {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .subpage-badge {
+      display: inline-block;
+      background: rgba(249, 162, 32, 0.15);
+      border: 1px solid rgba(249, 162, 32, 0.35);
+      color: var(--muzi-gold);
+      font-size: 0.8em;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .subpage-title {
+      color: #ffffff;
+      font-size: 2.8em;
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 0 0 16px 0;
+      letter-spacing: -0.02em;
+    }
+    .subpage-desc {
+      color: var(--muzi-text-muted);
+      font-size: 1.1em;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Content Box */
+    .subpage-content-box {
+      background: var(--muzi-card-bg);
+      border: 1px solid var(--muzi-border);
+      border-radius: 24px;
+      padding: 48px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(12px);
+    }
+
+    /* Typography inside content */
+    .subpage-content-box h2 {
+      color: #ffffff;
+      font-size: 1.6em;
+      font-weight: 700;
+      margin: 36px 0 16px 0;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .subpage-content-box h2:first-child {
+      margin-top: 0;
+    }
+    .subpage-content-box h3 {
+      color: var(--muzi-gold);
+      font-size: 1.25em;
+      margin: 24px 0 10px 0;
+    }
+    .subpage-content-box p {
+      color: var(--muzi-text);
+      font-size: 1em;
+      line-height: 1.7;
+      margin: 0 0 16px 0;
+    }
+    .subpage-content-box ul, .subpage-content-box ol {
+      color: var(--muzi-text);
+      padding-left: 24px;
+      margin: 0 0 20px 0;
+      line-height: 1.7;
+    }
+    .subpage-content-box li {
+      margin-bottom: 8px;
+    }
+    .subpage-content-box a {
+      color: var(--muzi-gold);
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+    .subpage-content-box a:hover {
+      color: #ffffff;
+    }
+
+    /* Callout Card */
+    .subpage-callout {
+      background: rgba(255, 30, 140, 0.12);
+      border-left: 4px solid var(--muzi-pink);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 24px 0;
+    }
+    .subpage-callout p {
+      color: #ffffff;
+      margin: 0;
+      font-size: 0.95em;
+    }
+
+    /* Compact Footer */
+    .footer.is--muzi-compact {
+      background-color: #120a24 !important;
+      color: #ffffff !important;
+      padding: 24px 0 !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    .muzi-compact-footer {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      gap: 20px !important;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .muzi-compact-left {
+      display: flex !important;
+      align-items: center !important;
+      gap: 16px !important;
+    }
+    .muzi-compact-logo {
+      width: 120px !important;
+      height: auto !important;
+    }
+    .muzi-compact-copy {
+      color: rgba(255, 255, 255, 0.5) !important;
+      font-size: 0.85em !important;
+    }
+    .muzi-compact-links {
+      display: flex !important;
+      align-items: center !important;
+      gap: 20px !important;
+      flex-wrap: wrap !important;
+    }
+    .muzi-compact-link {
+      color: rgba(255, 255, 255, 0.7) !important;
+      text-decoration: none !important;
+      font-size: 0.88em !important;
+      font-weight: 500 !important;
+      transition: color 0.2s ease !important;
+    }
+    .muzi-compact-link:hover {
+      color: var(--muzi-gold) !important;
+    }
+    .muzi-compact-link.is--highlight {
+      color: var(--muzi-gold) !important;
+      font-weight: 700 !important;
+      background: rgba(249, 162, 32, 0.12) !important;
+      border: 1px solid rgba(249, 162, 32, 0.3) !important;
+      padding: 4px 12px !important;
+      border-radius: 20px !important;
+    }
+    .muzi-compact-socials {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+    }
+    .muzi-compact-social {
+      width: 32px !important;
+      height: 32px !important;
+      border-radius: 50% !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      color: #ffffff !important;
+      text-decoration: none !important;
+      transition: all 0.2s ease !important;
+    }
+    .muzi-compact-social:hover {
+      background: var(--muzi-pink) !important;
+      border-color: var(--muzi-pink) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    @media screen and (max-width: 768px) {
+      .subpage-title { font-size: 2.1em; }
+      .subpage-content-box { padding: 28px 20px; border-radius: 18px; }
+      .muzi-compact-footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="subpage-header">
+    <div class="subpage-nav">
+      <a href="/" class="subpage-logo-link">
+        <img src="assets/logo/muzi_brand_logo.svg" alt="MUZI Music Logo" class="subpage-logo"/>
+      </a>
+      <div class="subpage-nav-actions">
+        <a href="/" class="subpage-home-btn">&larr; Back to Home</a>
+        <a href="https://github.com/biikkkuuuu/muzi-music-pc/releases" target="_blank" class="subpage-dl-btn">
+          <span>Download for PC</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="subpage-container">
+    <div class="subpage-hero">
+      <div class="subpage-badge">HELP & COMMON QUESTIONS</div>
+      <h1 class="subpage-title">Frequently Asked Questions</h1>
+      <p class="subpage-desc">Everything you need to know about MUZI Music PC, audio quality, offline mode, and installation.</p>
+    </div>
+
+    <div class="subpage-content-box">
+      
+<h2>1. General Questions</h2>
+
+<h3>Is MUZI really 100% free with zero ads?</h3>
+<p>Yes, absolutely! MUZI is an open-source community passion project. There are no audio advertisements, no subscription paywalls, and no sponsored popups. It is free now and will remain free forever.</p>
+
+<h3>How is MUZI different from Spotify or YouTube Music?</h3>
+<p>MUZI is built for music lovers who value purity, privacy, and speed:</p>
+<ul>
+  <li>Zero commercial advertisements between songs.</li>
+  <li>No login or account creation required.</li>
+  <li>Native Kotlin Compose Desktop performance (low CPU and RAM footprint).</li>
+  <li>Unlimited offline crates saved directly on your device.</li>
+  <li>Real-time synced lyrics for millions of tracks.</li>
+</ul>
+
+<h2>2. Desktop &amp; Installation</h2>
+
+<h3>How do I install MUZI on Windows?</h3>
+<p>Simply download the latest installer (<code>.msi</code> or <code>.exe</code>) from our <a href="https://github.com/biikkkuuuu/muzi-music-pc/releases" target="_blank">GitHub Releases Page</a>. Run the installer and you're ready to stream!</p>
+
+<h3>Is Linux supported?</h3>
+<p>Yes! We provide Debian packages (<code>.deb</code>) and standalone tarballs for Ubuntu, Debian, Arch, and Fedora in the GitHub Releases section.</p>
+
+<h3>What about mobile devices?</h3>
+<p>The Android APK is available in the releases section. Cross-platform mobile sync with the PC app is currently in active development.</p>
+
+<h2>3. Audio Quality &amp; Features</h2>
+
+<h3>What audio quality does MUZI stream?</h3>
+<p>MUZI streams the highest bitrate audio streams available (up to 320kbps High Quality and Lossless audio containers where available) with customized dynamic equalizers.</p>
+
+<h3>Where are offline tracks stored?</h3>
+<p>Offline crates are stored locally in your operating system's designated app data directory. You can play them anytime even without an active internet connection.</p>
+
+<h2>4. Contributing &amp; Open Source</h2>
+
+<h3>How can I contribute to MUZI?</h3>
+<p>We welcome all contributions! You can star the repository on GitHub, report bugs, suggest features, or submit Pull Requests for Kotlin Compose desktop improvements.</p>
+<p>Check out our repository at <a href="https://github.com/biikkkuuuu/muzi-music-pc" target="_blank">github.com/biikkkuuuu/muzi-music-pc</a>.</p>
+
+    </div>
+  </div>
+
+  <!-- Compact Footer -->
+  <footer class="footer is--muzi-compact">
+    <div class="muzi-compact-footer">
+      <div class="muzi-compact-left">
+        <a href="/">
+          <img alt="MUZI Music" src="assets/logo/muzi_brand_logo.svg" class="muzi-compact-logo"/>
+        </a>
+        <span class="muzi-compact-copy">&copy; 2026 MUZI Music. Free &amp; Open Source.</span>
+      </div>
+      <div class="muzi-compact-links">
+        <a href="https://github.com/biikkkuuuu/muzi-music-pc/releases" target="_blank" class="muzi-compact-link is--highlight">Download for PC</a>
+        <a href="https://github.com/biikkkuuuu/muzi-music-pc" target="_blank" class="muzi-compact-link">GitHub &starf;</a>
+        <a href="privacy-policy.html" class="muzi-compact-link">Privacy Policy</a>
+        <a href="terms-of-service.html" class="muzi-compact-link">Terms</a>
+        <a href="faq.html" class="muzi-compact-link">FAQ</a>
+        <a href="contact.html" class="muzi-compact-link">Contact</a>
+      </div>
+      <div class="muzi-compact-socials">
+        <a href="https://github.com/biikkkuuuu/muzi-music-pc" target="_blank" class="muzi-compact-social" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="muzi-compact-social" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" class="button-social__icon"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6Zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" fill="currentColor"></path></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
