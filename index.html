@@ -625,6 +625,46 @@ img.pop-up__button-svg {
       padding: 10px 10px 30px !important;
     }
   }
+
+  /* 1. Remove Menu Hamburger button completely */
+  .header__menu-toggle,
+  .is--menu-toggle,
+  [data-menu-toggle],
+  .menu,
+  [data-menu] {
+    display: none !important;
+  }
+
+  /* 2. Fix Header Overlap on PC & Mobile: absolute positioning prevents floating over cards */
+  .header {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 100 !important;
+    transform: none !important;
+    translate: none !important;
+  }
+
+  /* 3. Move Stream sound content up on mobile so it looks structured and eliminates unused space */
+  @media screen and (max-width: 991px) {
+    .hero__text-outer {
+      top: 4.2em !important;
+      right: 1.25em !important;
+    }
+    .hero__content {
+      padding-top: 8em !important;
+    }
+  }
+  @media screen and (max-width: 479px) {
+    .hero__text-outer {
+      top: 3.5em !important;
+      right: 1em !important;
+    }
+    .hero__content {
+      padding-top: 7em !important;
+    }
+  }
 </style>
 
 
