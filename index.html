@@ -756,25 +756,38 @@ img.pop-up__button-svg {
     margin-bottom: 0.8rem !important;
   }
 
-  /* 4. Benefits Section (Why MUZI): Clean rounded card, absolutely zero yellow bleed */
+  /* 4. Benefits Section (Why MUZI): Clean rounded card, absolutely zero yellow line or bleed */
   .benefits {
     position: relative !important;
     z-index: 5 !important;
     margin-top: 0 !important;
     overflow: hidden !important;
+    border-radius: 2.5em !important;
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
   }
   .benefits__container {
     overflow: hidden !important;
+    border-radius: 2.5em !important;
+    border: none !important;
+    outline: none !important;
   }
   .benefits__inner {
     border-radius: 2.5em !important;
-    -webkit-clip-path: inset(0 round 2.5em) !important;
-    clip-path: inset(0 round 2.5em) !important;
     overflow: hidden !important;
+    -webkit-clip-path: none !important;
+    clip-path: none !important;
+    border: none !important;
+    outline: none !important;
   }
-  .benefits__bg,
+  .benefits__bg {
+    overflow: hidden !important;
+    border-radius: 2.5em !important;
+  }
   .benefits__bg-svg {
     overflow: hidden !important;
+    display: block !important;
   }
   .benefits__content {
     margin-bottom: 1rem !important;
@@ -813,11 +826,24 @@ img.pop-up__button-svg {
     .benefits {
       padding-top: 0 !important;
       margin-top: 0 !important;
+      border-radius: 2.5em !important;
+      overflow: hidden !important;
+      border: none !important;
+      outline: none !important;
+    }
+    .benefits__container {
+      border-radius: 2.5em !important;
+      overflow: hidden !important;
+      border: none !important;
+      outline: none !important;
     }
     .benefits__inner {
       border-radius: 2.5em !important;
-      -webkit-clip-path: inset(0 round 2.5em) !important;
-      clip-path: inset(0 round 2.5em) !important;
+      overflow: hidden !important;
+      -webkit-clip-path: none !important;
+      clip-path: none !important;
+      border: none !important;
+      outline: none !important;
     }
     .header__title-logo {
       width: 11em !important;
