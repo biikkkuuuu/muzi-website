@@ -92,7 +92,7 @@
   }
   .hero__visual {
     width: 100% !important;
-    margin-top: 2.5em !important;
+    margin-top: 1.3em !important;
     margin-bottom: 2em !important;
   }
 }
@@ -513,6 +513,54 @@ img.pop-up__button-svg {
 
 <style id="muzi-desktop-mockup-styles">
   /* MUZI PC Desktop Edition Clean Minimalist Styling (Matches Mobile) */
+  .exclusive,
+  .exclusive.is--bg-white {
+    background-color: #ffffff !important;
+    clip-path: none !important;
+    -webkit-clip-path: none !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+  .exclusive__container,
+  .exclusive__inner,
+  .exclusive__content,
+  .exclusive-slider,
+  .exclusive-slider__collection {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+  .exclusive-slider__list {
+    overflow: visible !important;
+    overflow-x: visible !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    scroll-snap-type: none !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .exclusive-slider__list::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  .exclusive-slider__list-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    scroll-snap-align: none !important;
+  }
   .exclusive-slider__item-outer {
     width: 1040px !important;
     max-width: 95% !important;
@@ -528,6 +576,7 @@ img.pop-up__button-svg {
     background: transparent !important;
     background-color: transparent !important;
     border: none !important;
+    outline: none !important;
     box-shadow: none !important;
   }
   .exclusive-slider .exclusive-slider__item {
@@ -535,6 +584,8 @@ img.pop-up__button-svg {
     margin: 0 auto !important;
     position: relative !important;
     z-index: 2 !important;
+    border: none !important;
+    outline: none !important;
   }
   .exclusive-slider .exclusive-slider__item-inner {
     width: 100% !important;
@@ -543,6 +594,8 @@ img.pop-up__button-svg {
     align-items: center !important;
     justify-content: center !important;
     position: relative !important;
+    border: none !important;
+    outline: none !important;
   }
   .exclusive-slider .books-slider__item-bg {
     display: none !important;
@@ -557,15 +610,20 @@ img.pop-up__button-svg {
     align-items: center !important;
     justify-content: center !important;
     padding: 0 !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
   }
   .exclusive-slider .books-slider__item-cover {
     width: 100% !important;
     max-width: 950px !important;
-    aspect-ratio: 3700 / 2150 !important;
+    aspect-ratio: 3780 / 2230 !important;
     height: auto !important;
     background: transparent !important;
     box-shadow: none !important;
     border-radius: 0 !important;
+    border: none !important;
+    outline: none !important;
     margin: 0 auto 1.5rem !important;
     display: flex !important;
     justify-content: center !important;
@@ -577,13 +635,16 @@ img.pop-up__button-svg {
     height: auto !important;
     object-fit: contain !important;
     border-radius: 0 !important;
-    image-rendering: -webkit-optimize-contrast !important;
-    filter: drop-shadow(0 25px 50px rgba(0,0,0,0.45)) !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    filter: drop-shadow(0 18px 24px rgba(0,0,0,0.16)) !important;
   }
   .exclusive-slider .books-slider__item-content {
     background: transparent !important;
     box-shadow: none !important;
     border: none !important;
+    outline: none !important;
     padding: 0 !important;
     width: 100% !important;
     display: flex !important;
@@ -624,6 +685,12 @@ img.pop-up__button-svg {
     .exclusive-slider__item-outer {
       padding: 10px 10px 30px !important;
     }
+    .exclusive-slider .books-slider__item-cover {
+      margin: 0 auto 1rem !important;
+    }
+    .exclusive-slider .books-slider__item-img {
+      filter: drop-shadow(0 12px 18px rgba(0,0,0,0.15)) !important;
+    }
   }
 
   /* 1. Remove Menu Hamburger button completely */
@@ -649,20 +716,20 @@ img.pop-up__button-svg {
   /* 3. Move Stream sound content up on mobile so it looks structured and eliminates unused space */
   @media screen and (max-width: 991px) {
     .hero__text-outer {
-      top: 4.2em !important;
+      top: 2.5em !important;
       right: 1.25em !important;
     }
     .hero__content {
-      padding-top: 8em !important;
+      padding-top: 4.4em !important;
     }
   }
   @media screen and (max-width: 479px) {
     .hero__text-outer {
-      top: 3.5em !important;
+      top: 2em !important;
       right: 1em !important;
     }
     .hero__content {
-      padding-top: 7em !important;
+      padding-top: 3.8em !important;
     }
   }
 </style>
@@ -682,16 +749,16 @@ img.pop-up__button-svg {
     position: relative !important;
     left: 0 !important;
     right: 0 !important;
-    margin: 0 0 2rem 0 !important;
+    margin: 1rem 0 !important;
     border-radius: 2.5em !important;
-    -webkit-clip-path: inset(0 round 2.5em) !important;
-    clip-path: inset(0 round 2.5em) !important;
+    -webkit-clip-path: none !important;
+    clip-path: none !important;
     background-color: #ff2994 !important;
     box-sizing: border-box !important;
     overflow: hidden !important;
     z-index: 10 !important;
-    padding-top: 3.2rem !important;
-    padding-bottom: 3.2rem !important;
+    padding-top: 2.2rem !important;
+    padding-bottom: 2.2rem !important;
   }
   .genre__container,
   .genre__container.u-container {
@@ -725,7 +792,7 @@ img.pop-up__button-svg {
     padding-bottom: 0 !important;
   }
   .genre__easter-egg {
-    margin-top: 1.8rem !important;
+    margin-top: 1.4rem !important;
     margin-bottom: 0 !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
@@ -804,12 +871,12 @@ img.pop-up__button-svg {
     }
     .genre,
     .genre.is--bright-pink {
-      margin: 0 0 2rem 0 !important;
-      padding-top: 3.2rem !important;
-      padding-bottom: 3.2rem !important;
+      margin: 1rem 0 !important;
+      padding-top: 2.2rem !important;
+      padding-bottom: 2.2rem !important;
       border-radius: 2.5em !important;
-      -webkit-clip-path: inset(0 round 2.5em) !important;
-      clip-path: inset(0 round 2.5em) !important;
+      -webkit-clip-path: none !important;
+      clip-path: none !important;
     }
     .genre__list {
       margin-top: 0 !important;
@@ -818,7 +885,7 @@ img.pop-up__button-svg {
       padding-bottom: 0 !important;
     }
     .genre__easter-egg {
-      margin-top: 1.8rem !important;
+      margin-top: 1.4rem !important;
       margin-bottom: 0 !important;
       padding-top: 0 !important;
       padding-bottom: 0 !important;
