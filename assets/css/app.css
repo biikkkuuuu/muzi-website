@@ -433,6 +433,13 @@ html.has--menu-open .header {
 }
 
 .header {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 100 !important;
+  transform: none !important;
+  translate: none !important;
   transition: translate 0.5s var(--ease-smooth);
 }
 
@@ -2339,5 +2346,202 @@ html[lang="fr"] .lang-en-only {
 .footer {
   content-visibility: auto;
   contain-intrinsic-size: 1px 700px;
+}
+
+/* ============================================================
+   GLOBAL BRAND HEADER LOGO & COMPACT FOOTER STYLES
+   ============================================================ */
+@font-face {
+  font-family: 'Champ';
+  src: url('https://cdn.prod.website-files.com/696173cb00865d1b386e4af8/6963d2cdeaa0084ad1abd7f0_Champ-ExtraBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.header__title {
+  width: auto !important;
+  max-width: none !important;
+  overflow: visible !important;
+}
+
+.header__title-link,
+.header__title-link:link,
+.header__title-link:visited,
+.header__title-link:hover,
+.header__title-link:active {
+  display: inline-flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.muzi-header-brand {
+  font-family: 'Champ', Arial, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 3.25rem !important;
+  line-height: 1 !important;
+  letter-spacing: -0.04em !important;
+  display: inline-flex !important;
+  align-items: baseline !important;
+  text-decoration: none !important;
+  user-select: none !important;
+  white-space: nowrap !important;
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+.muzi-header-brand:hover {
+  opacity: 0.88 !important;
+  transform: scale(1.02) !important;
+}
+
+.muzi-header-brand .brand-muzi {
+  color: #08090D !important;
+}
+
+.muzi-header-brand .brand-music {
+  color: #E11D48 !important;
+  margin-left: 0.16em !important;
+}
+
+@media screen and (max-width: 991px) {
+  .muzi-header-brand {
+    font-size: 2.85rem !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .muzi-header-brand {
+    font-size: 2.65rem !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .muzi-header-brand {
+    font-size: 2.45rem !important;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .muzi-header-brand {
+    font-size: 2.2rem !important;
+  }
+}
+
+/* Compact Footer */
+.footer.is--muzi-compact {
+  background-color: #190f33 !important;
+  color: #ffffff !important;
+  position: relative !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 24px 0 !important;
+  min-height: auto !important;
+  display: block !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.muzi-compact-footer {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 20px !important;
+  width: 100% !important;
+}
+
+.muzi-compact-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+}
+
+.muzi-compact-logo {
+  width: 130px !important;
+  height: auto !important;
+  display: block !important;
+}
+
+.muzi-compact-copy {
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 0.85em !important;
+  white-space: nowrap !important;
+}
+
+.muzi-compact-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 22px !important;
+  flex-wrap: wrap !important;
+}
+
+.muzi-compact-link {
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-decoration: none !important;
+  font-size: 0.88em !important;
+  font-weight: 500 !important;
+  transition: color 0.2s ease, transform 0.2s ease !important;
+  display: inline-block !important;
+}
+
+.muzi-compact-link:hover {
+  color: #f9a220 !important;
+  transform: translateY(-1px) !important;
+}
+
+.muzi-compact-link.is--highlight {
+  color: #f9a220 !important;
+  font-weight: 700 !important;
+  background: rgba(249, 162, 32, 0.12) !important;
+  border: 1px solid rgba(249, 162, 32, 0.3) !important;
+  padding: 4px 12px !important;
+  border-radius: 20px !important;
+}
+
+.muzi-compact-link.is--highlight:hover {
+  background: rgba(249, 162, 32, 0.25) !important;
+  color: #ffffff !important;
+  border-color: #f9a220 !important;
+}
+
+.muzi-compact-socials {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.muzi-compact-social {
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #ffffff !important;
+  transition: all 0.2s ease !important;
+  text-decoration: none !important;
+}
+
+.muzi-compact-social:hover {
+  background: #ff1e8c !important;
+  border-color: #ff1e8c !important;
+  transform: translateY(-2px) !important;
+  color: #ffffff !important;
+}
+
+@media screen and (max-width: 860px) {
+  .muzi-compact-footer {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 16px !important;
+  }
+  .muzi-compact-left,
+  .muzi-compact-links {
+    justify-content: center !important;
+  }
 }
 

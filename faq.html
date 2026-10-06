@@ -76,9 +76,215 @@
 [data-transition-wrap] {
   background-color: #3b308f !important;
 }
+
+/* Header Brand Logo (MUZI MUSIC) - Matches Homescreen */
+.header {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 100 !important;
+  transform: none !important;
+  translate: none !important;
+}
+
+@font-face {
+  font-family: 'Champ';
+  src: url('https://cdn.prod.website-files.com/696173cb00865d1b386e4af8/6963d2cdeaa0084ad1abd7f0_Champ-ExtraBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.header__title {
+  width: auto !important;
+  max-width: none !important;
+  overflow: visible !important;
+}
+
+.header__title-link,
+.header__title-link:link,
+.header__title-link:visited,
+.header__title-link:hover,
+.header__title-link:active {
+  display: inline-flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.muzi-header-brand {
+  font-family: 'Champ', Arial, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 3.25rem !important;
+  line-height: 1 !important;
+  letter-spacing: -0.04em !important;
+  display: inline-flex !important;
+  align-items: baseline !important;
+  text-decoration: none !important;
+  user-select: none !important;
+  white-space: nowrap !important;
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+.muzi-header-brand:hover {
+  opacity: 0.88 !important;
+  transform: scale(1.02) !important;
+}
+
+.muzi-header-brand .brand-muzi {
+  color: #08090D !important;
+}
+
+.muzi-header-brand .brand-music {
+  color: #E11D48 !important;
+  margin-left: 0.16em !important;
+}
+
+@media screen and (max-width: 991px) {
+  .muzi-header-brand {
+    font-size: 2.85rem !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .muzi-header-brand {
+    font-size: 2.65rem !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .muzi-header-brand {
+    font-size: 2.45rem !important;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .muzi-header-brand {
+    font-size: 2.2rem !important;
+  }
+}
+
+/* Compact Footer - Matches Homescreen */
+.footer.is--muzi-compact {
+  background-color: #190f33 !important;
+  color: #ffffff !important;
+  position: relative !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 24px 0 !important;
+  min-height: auto !important;
+  display: block !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.muzi-compact-footer {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 20px !important;
+  width: 100% !important;
+}
+
+.muzi-compact-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+}
+
+.muzi-compact-logo {
+  width: 130px !important;
+  height: auto !important;
+  display: block !important;
+}
+
+.muzi-compact-copy {
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 0.85em !important;
+  white-space: nowrap !important;
+}
+
+.muzi-compact-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 22px !important;
+  flex-wrap: wrap !important;
+}
+
+.muzi-compact-link {
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-decoration: none !important;
+  font-size: 0.88em !important;
+  font-weight: 500 !important;
+  transition: color 0.2s ease, transform 0.2s ease !important;
+  display: inline-block !important;
+}
+
+.muzi-compact-link:hover {
+  color: #f9a220 !important;
+  transform: translateY(-1px) !important;
+}
+
+.muzi-compact-link.is--highlight {
+  color: #f9a220 !important;
+  font-weight: 700 !important;
+  background: rgba(249, 162, 32, 0.12) !important;
+  border: 1px solid rgba(249, 162, 32, 0.3) !important;
+  padding: 4px 12px !important;
+  border-radius: 20px !important;
+}
+
+.muzi-compact-link.is--highlight:hover {
+  background: rgba(249, 162, 32, 0.25) !important;
+  color: #ffffff !important;
+  border-color: #f9a220 !important;
+}
+
+.muzi-compact-socials {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.muzi-compact-social {
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #ffffff !important;
+  transition: all 0.2s ease !important;
+  text-decoration: none !important;
+}
+
+.muzi-compact-social:hover {
+  background: #ff1e8c !important;
+  border-color: #ff1e8c !important;
+  transform: translateY(-2px) !important;
+  color: #ffffff !important;
+}
+
+@media screen and (max-width: 860px) {
+  .muzi-compact-footer {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 16px !important;
+  }
+  .muzi-compact-left,
+  .muzi-compact-links {
+    justify-content: center !important;
+  }
+}
+
 </style>
 </head><body data-barba="wrapper" data-scrolling-started="false" class="is--faq"><div class="w-embed"><link rel="stylesheet" href="assets/css/app.css" /></div><div data-transition-wrap="" class="transition"><div class="transition__shape"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" fill="none" preserveAspectRatio="none" class="transition__svg"><path d="M66.858-19C57.597 196.452 127.164 482.585 206.5 464.5c125.428-28.592 52.293-293.51 200.001-339 568.234-175-241.425 712.6 15.5 803.02C645 1007 629.398 499 810.5 499c113.398 0 106.54 189.465 164.235 429.52 48.005 199.72 89.415 213.09 105.265 173.78" stroke="currentColor" stroke-width="70%" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div data-load-reset="" data-transition-logo="" class="transition__logo"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 300" width="100%" class="transition__logo-svg muzi-transition-badge"><defs><filter id="muziShadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.45" /></filter></defs><g filter="url(#muziShadow)"><circle cx="150" cy="150" r="148" fill="#ffffff" /><image href="assets/logo/muzi_logo.png" xlink:href="assets/logo/muzi_logo.png" x="6" y="6" width="288" height="288" preserveAspectRatio="xMidYMid meet" /></g></svg></div></div>
-<div data-barba="container" class="page-wrapper"><header data-load-reset="" data-header="" class="header"><div class="header__inner"><div class="header__title"><a data-barba-prevent="self" href="index.html" class="header__title-link w-inline-block"><span class="muzi-header-brand" aria-label="MUZI Music"><span class="brand-muzi">Muzi</span> <span class="brand-music">Music</span></span></a></div><nav class="header__nav"><ul role="list" class="header__nav-list w-list-unstyled"></ul></nav><div class="header__sub"><ul role="list" class="header__sub-list w-list-unstyled"><li class="header__sub-list-item"><a data-button="" href="https://github.com/biikkkuuuu/muzi-music" target="_blank" rel="noopener noreferrer" class="button w-inline-block"><span class="button__bg"></span><span class="button__inner"><span data-button-text="" class="button__text">⭐ GitHub Repo</span></span></a></li></ul></div></div></header></div><main class="main"><section data-hero-faq="" class="hero-xs is--bg-pale-blue"><div class="hero-xs__container u-container"><div class="hero-xs__inner is--faq"><div class="hero-xs__content"><h1 data-hero-faq-title="" class="hero-xs__title u-heading-xxl">Common questions</h1><p data-hero-faq-paragraph="" class="hero-xs__paragraph u-paragraph-large">The archive of all MUZI Music knowledge.</p><div data-hero-faq-easter-egg="" class="hero-xs__easter-egg"><div class="pop-up"><button type="button" data-pop-up-button="" aria-label="Download MUZI Music" class="pop-up__button"><span class="pop-up__button-inner"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="100%" class="pop-up__button-svg">
+<div data-barba="container" class="page-wrapper"><header data-load-reset="" data-header="" class="header"><div class="header__inner"><div class="header__title"><a data-barba-prevent="self" href="index.html" class="header__title-link w-inline-block"><span class="muzi-header-brand" aria-label="MUZI Music"><span class="brand-muzi">Muzi</span> <span class="brand-music">Music</span></span></a></div><nav class="header__nav"><ul role="list" class="header__nav-list w-list-unstyled"></ul></nav><div class="header__sub"><ul role="list" class="header__sub-list w-list-unstyled"><li class="header__sub-list-item"><a data-button="" href="https://github.com/biikkkuuuu/muzi-music" target="_blank" rel="noopener noreferrer" class="button w-inline-block"><span class="button__bg"></span><span class="button__inner"><span data-button-text="" class="button__text">⭐ GitHub Repo</span></span></a></li></ul></div></div></header><main class="main"><section data-hero-faq="" class="hero-xs is--bg-pale-blue"><div class="hero-xs__container u-container"><div class="hero-xs__inner is--faq"><div class="hero-xs__content"><h1 data-hero-faq-title="" class="hero-xs__title u-heading-xxl">Common questions</h1><p data-hero-faq-paragraph="" class="hero-xs__paragraph u-paragraph-large">The archive of all MUZI Music knowledge.</p><div data-hero-faq-easter-egg="" class="hero-xs__easter-egg"><div class="pop-up"><button type="button" data-pop-up-button="" aria-label="Download MUZI Music" class="pop-up__button"><span class="pop-up__button-inner"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="100%" class="pop-up__button-svg">
   <circle cx="40" cy="40" r="38" fill="#ffffff" stroke="#111111" stroke-width="3"/>
   <circle cx="40" cy="40" r="28" fill="#111111"/>
   <circle cx="40" cy="40" r="22" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
@@ -290,7 +496,7 @@
     <div class="muzi-compact-footer">
       <div class="muzi-compact-left">
         <a href="index.html" class="muzi-compact-logo-link">
-          <img width="180" height="35" alt="MUZI Music Logo" src="assets/logo/muzi_brand_logo_clean.svg" loading="lazy" class="muzi-compact-logo"/>
+          <img width="180" height="35" alt="MUZI Music Logo" src="assets/logo/muzi_brand_logo_footer.svg" loading="lazy" class="muzi-compact-logo"/>
         </a>
         <span class="muzi-compact-copy">&copy; 2026 MUZI Music. Free &amp; Open Source.</span>
       </div>
