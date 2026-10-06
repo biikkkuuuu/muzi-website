@@ -678,6 +678,14 @@ function runPageOnceAnimation(next) {
     tl.set(resetTargets, { opacity: 1 }, 0);
   }
 
+  if (transitionWrap) {
+    tl.set(transitionWrap, {
+      display: "flex",
+      pointerEvents: "auto",
+      opacity: 1,
+    }, 0);
+  }
+
   tl.set(header, {
     yPercent: -100,
   });
@@ -935,6 +943,25 @@ function runPageOnceAnimation(next) {
     })
   }
 
+  // 1. Muzi Logo Spring In
+  tl.to(transitionLogo, {
+    scale: 1,
+    rotate: 0,
+    autoAlpha: 1,
+    duration: 0.45,
+    ease: "elastic.out(1, 0.75)",
+  }, 0.05);
+
+  // 2. Muzi Logo Spin & Shrink Out (0.52s -> 0.80s)
+  tl.to(transitionLogo, {
+    scale: 0,
+    rotate: 35,
+    autoAlpha: 0,
+    duration: 0.28,
+    ease: "power2.in",
+  }, 0.52);
+
+  // 3. Violet Wave Curve sweeps open in unison
   tl.to(transitionSVGPath, {
     keyframes: {
       "95%": {
@@ -945,43 +972,36 @@ function runPageOnceAnimation(next) {
         drawSVG: '100% 100%',
       },
     },
-    duration: 0.6,
-    delay: 0.12,
-  }, "start");
-
-  tl.to(transitionLogo, {
-    scale: 1,
-    rotate: 0,
-    autoAlpha: 1,
-    delay: 0.02,
     duration: 0.35,
+    ease: "circ.out",
+  }, 0.52);
+
+  // 4. Immediately dissolve the transition curtain so site reveals with ZERO delay!
+  tl.to(transitionWrap, {
+    opacity: 0,
+    duration: 0.24,
     ease: "power2.out",
-  }, "start");
+    onComplete: () => {
+      transitionWrap.style.display = "none";
+      transitionWrap.style.pointerEvents = "none";
+    }
+  }, 0.56);
 
-  tl.to(transitionLogo, {
-    scale: 0,
-    rotate: 32,
-    autoAlpha: 0,
-    delay: 0.22,
-    duration: 0.28,
-    ease: "power2.in",
-  }, "start");
-
+  // 5. Header drops down smoothly right as icon leaves
   tl.to(header, {
     yPercent: 0,
-    duration: 0.5,
-    delay: 0.5,
-    ease: "energy",
-  }, "start+=0.25")
+    duration: 0.35,
+    ease: "power2.out",
+  }, 0.54);
 
+  // 6. Home Page elements reveal
   if (introHome) {
     if (window.matchMedia("(min-width: 992px)").matches) {
       tl.to(introHomeBg, {
         clipPath: "ellipse(150% 130% at 100% 100%)",
-        duration: 1.1,
-        delay: 0.2,
+        duration: 0.55,
         ease: "circ.out",
-      }, "start+=0.25")
+      }, 0.54);
     }
 
     tl.to(introHomeTitleSplit.words, {
@@ -1006,26 +1026,23 @@ function runPageOnceAnimation(next) {
           ease: "elastic.out(1,0.72)",
         },
       },
-      duration: 0.875,
-      stagger: 0.088,
-      delay: 0.25
-    }, "start+=0.25");
+      duration: 0.55,
+      stagger: 0.04,
+    }, 0.54);
 
     tl.to(introHomeParagraph, {
       opacity: 1,
       y: "0em",
-      duration: 0.35,
-      delay: 0.45,
-      ease: "energy",
-    }, "start+=0.25")
+      duration: 0.28,
+      ease: "power2.out",
+    }, 0.60);
 
     tl.to(introHomeButton, {
       opacity: 1,
       y: "0em",
-      duration: 0.35,
-      delay: 0.525,
-      ease: "energy",
-    }, "start+=0.25")
+      duration: 0.28,
+      ease: "power2.out",
+    }, 0.64);
 
     tl.to(introHomeTextSplit.chars, {
       opacity: 1,
@@ -1033,52 +1050,53 @@ function runPageOnceAnimation(next) {
       x: "0em",
       y: "0em",
       ease: 'elastic.out(1, 0.75)',
-      duration: 0.75,
-      delay: 0.45,
-      stagger: 0.016
-    }, "start+=0.25");
+      duration: 0.45,
+      stagger: 0.01,
+    }, 0.60);
 
-    tl.to(introHomeEasterEgg, {
-      opacity: 1,
-      duration: 0.35,
-      delay: 0.45,
-      ease: "energy",
-    }, "start+=0.25")
+    if (introHomeEasterEgg) {
+      tl.to(introHomeEasterEgg, {
+        opacity: 1,
+        duration: 0.25,
+        ease: "power2.out",
+      }, 0.64);
+    }
 
-    tl.to(introHomeSequence, {
-      opacity: 1,
-      scale: 1,
-      rotate: 0,
-      duration: 0.85,
-      delay: 0.5,
-      ease: 'expo.out',
-    }, "start+=0.25");
+    if (introHomeSequence) {
+      tl.to(introHomeSequence, {
+        opacity: 1,
+        scale: 1,
+        rotate: 0,
+        duration: 0.45,
+        ease: 'expo.out',
+      }, 0.64);
+    }
 
-    tl.to(introHomeVisual, {
-      opacity: 1,
-      y: "0em",
-      rotate: -21,
-      duration: 0.75,
-      delay: 0.5,
-      ease: 'elastic.out(1, 0.72)',
-    }, "start+=0.25");
+    if (introHomeVisual) {
+      tl.to(introHomeVisual, {
+        opacity: 1,
+        y: "0em",
+        rotate: -21,
+        duration: 0.5,
+        ease: 'elastic.out(1, 0.72)',
+      }, 0.60);
+    }
   }
 
+  // 7. Subpages (FAQ, Terms, Privacy, Contact) elements reveal
   if (introFaq) {
     tl.to(introFaq, {
       y: "0em",
       opacity: 1,
-      duration: 0.4,
-      delay: 0.1,
-      ease: "energy",
-    }, "start+=0.25")
+      duration: 0.35,
+      ease: "power2.out",
+    }, 0.54);
 
     tl.to(introFaqBg, {
       clipPath: "ellipse(150% 130% at 100% 100%)",
-      duration: 1.1,
-      delay: 0.2,
+      duration: 0.55,
       ease: "circ.out",
-    }, "start+=0.25")
+    }, 0.54);
 
     tl.to(introFaqTitleSplit.words, {
       keyframes: {
@@ -1102,232 +1120,46 @@ function runPageOnceAnimation(next) {
           ease: "elastic.out(1,0.72)",
         },
       },
-      duration: 0.875,
-      stagger: 0.088,
-      delay: 0.25
-    }, "start+=0.25");
+      duration: 0.55,
+      stagger: 0.04,
+    }, 0.54);
 
     tl.to(introFaqParagraph, {
       opacity: 1,
       y: "0em",
-      duration: 0.35,
-      delay: 0.45,
-      ease: "energy",
-    }, "start+=0.25")
+      duration: 0.28,
+      ease: "power2.out",
+    }, 0.60);
 
-    tl.to(introFaqEasterEgg, {
-      opacity: 1,
-      duration: 0.35,
-      delay: 0.45,
-      ease: "energy",
-    }, "start+=0.25")
-
-    tl.to(introFaqContent, {
-      y: "0em",
-      opacity: 1,
-      duration: 0.6,
-      delay: 0.35,
-      ease: "energy",
-    }, "start+=0.25")
-  }
-
-  if (introBook) {
-    tl.to(introBook, {
-      y: "0em",
-      opacity: 1,
-      duration: 0.4,
-      delay: 0.1,
-      ease: "energy",
-    }, "start+=0.25")
-
-    if (window.matchMedia("(min-width: 992px)").matches) {
-      tl.to(introBookBg, {
-        clipPath: "ellipse(150% 130% at 100% 100%)",
-        duration: 1.1,
-        delay: 0.2,
-        ease: "circ.out",
-      }, "start+=0.25")
+    if (introFaqEasterEgg) {
+      tl.to(introFaqEasterEgg, {
+        opacity: 1,
+        duration: 0.25,
+        ease: "power2.out",
+      }, 0.64);
     }
 
-    tl.to(introBookTitleSplit.words, {
-      keyframes: {
-        "0%": {
-          yPercent: -10,
-          xPercent: 40,
-          scaleY: 0.1,
-          scaleX: 0.85,
-          rotate: 8,
-          opacity: 0,
-        },
-        "10%": {
-          opacity: 1,
-        },
-        "100%": {
-          yPercent: 0,
-          xPercent: 0,
-          scaleY: 1,
-          scaleX: 1,
-          rotate: 0,
-          ease: "elastic.out(1,0.72)",
-        },
-      },
-      duration: 0.875,
-      stagger: 0.088,
-      delay: 0.25
-    }, "start+=0.25");
-
-    tl.to(introBookParagraph, {
-      opacity: 1,
-      y: "0em",
-      duration: 0.35,
-      delay: 0.45,
-      ease: "energy",
-    }, "start+=0.25")
-
-    tl.to(introBookGenre, {
-      opacity: 1,
-      y: "0em",
-      duration: 0.35,
-      delay: 0.6,
-      ease: "energy",
-    }, "start+=0.25")
-
-    tl.to(introBookEasterEgg, {
-      opacity: 1,
-      duration: 0.35,
-      delay: 0.45,
-      ease: "energy",
-    }, "start+=0.25")
-
-    tl.to(introBookCta, {
-      y: "0em",
-      duration: 0.5,
-      delay: 0.6,
-      ease: "energy",
-    }, "start+=0.25")
-
-    tl.to(introBookVisual, {
-      opacity: 1,
-      y: "0em",
-      duration: 0.75,
-      delay: 0.5,
-      ease: 'elastic.out(1, 0.72)',
-    }, "start+=0.25");
-  }
-
-  if (introGift) {
-    if (window.matchMedia("(min-width: 992px)").matches) {
-      tl.to(introGiftBg, {
-        clipPath: "ellipse(150% 130% at 100% 100%)",
-        duration: 1.1,
-        delay: 0.2,
-        ease: "circ.out",
-      }, "start+=0.25")
+    if (introFaqContent) {
+      tl.to(introFaqContent, {
+        y: "0em",
+        opacity: 1,
+        duration: 0.35,
+        ease: "power2.out",
+      }, 0.60);
     }
-
-    tl.to(introGift, {
-      y: "0em",
-      opacity: 1,
-      duration: 0.4,
-      delay: 0.1,
-      ease: "energy",
-    }, "start+=0.25")
-
-    tl.to(introGiftTitleSplit.words, {
-      keyframes: {
-        "0%": {
-          yPercent: -10,
-          xPercent: 40,
-          scaleY: 0.1,
-          scaleX: 0.85,
-          rotate: 8,
-          opacity: 0,
-        },
-        "10%": {
-          opacity: 1,
-        },
-        "100%": {
-          yPercent: 0,
-          xPercent: 0,
-          scaleY: 1,
-          scaleX: 1,
-          rotate: 0,
-          ease: "elastic.out(1,0.72)",
-        },
-      },
-      duration: 0.875,
-      stagger: 0.048,
-      delay: 0.25
-    }, "start+=0.25");
-
-    tl.to(introGiftButton, {
-      opacity: 1,
-      y: "0em",
-      duration: 0.35,
-      delay: 0.525,
-      ease: "energy",
-    }, "start+=0.25")
-
-    tl.to(introGiftLogo, {
-      opacity: 1,
-      duration: 0.35,
-      delay: 0.475,
-      ease: "energy",
-    }, "start+=0.25")
-
-    tl.to(introGiftTextSplit.chars, {
-      opacity: 1,
-      rotate: 0,
-      x: "0em",
-      y: "0em",
-      ease: 'elastic.out(1, 0.75)',
-      duration: 0.75,
-      delay: 0.45,
-      stagger: 0.016
-    }, "start+=0.25");
-
-    tl.to(introGiftEasterEgg, {
-      opacity: 1,
-      duration: 0.35,
-      delay: 0.45,
-      ease: "energy",
-    }, "start+=0.25")
-
-    tl.to(introGiftOverlayPaths, {
-      scale: 1,
-      rotate: 0,
-      yPercent: 0,
-      ease: 'elastic.out(1, 0.75)',
-      duration: 0.95,
-      delay: 0.5,
-      stagger: {
-        each: 0.011,
-        from: 'random',
-      }
-    }, "start+=0.25");
-
-    tl.to(introGiftVisual, {
-      opacity: 1,
-      y: "0em",
-      rotate: -21,
-      duration: 0.75,
-      delay: 0.5,
-      ease: 'elastic.out(1, 0.72)',
-    }, "start+=0.25");
-
-    tl.to(introGiftVisualMobile, {
-      opacity: 1,
-      y: "0em",
-      duration: 0.45,
-      delay: 0.425,
-      ease: 'energy',
-    }, "start+=0.25");
   }
 
   tl.call(() => {
     resetPage(next);
     scrollToInitialHash(next);
-  }, null, 0.6);
+  }, null, 0.82);
+
+  tl.eventCallback("onComplete", () => {
+    if (transitionWrap) {
+      transitionWrap.style.display = "none";
+      transitionWrap.style.pointerEvents = "none";
+    }
+  });
 
   return tl;
 }

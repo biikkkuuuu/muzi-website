@@ -353,37 +353,31 @@
 
 <!-- Local Production Core Bundle -->
 <script src="assets/js/app.js"></script><script>
-// Transition smooth reveal helper - plays MUZI transition & reveals page
-(function() {
-  function revealPage() {
-    const tWrap = document.querySelector('[data-transition-wrap]');
-    if (tWrap) {
-      if (typeof gsap !== 'undefined') {
-        gsap.to(tWrap, {
-          opacity: 0,
-          duration: 0.35,
-          delay: 0.05,
-          ease: 'power2.out',
-          onComplete: () => {
-            tWrap.style.display = 'none';
-            tWrap.style.pointerEvents = 'none';
-          }
-        });
-      } else {
-        setTimeout(() => {
-          tWrap.style.opacity = '0';
+// Scroll restoration & graceful fallback watchdog for page opening animation
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
+// Safety watchdog: In case network stalls any asset, smoothly dismiss transition curtain after 2.5s
+setTimeout(() => {
+  const tWrap = document.querySelector('[data-transition-wrap]');
+  if (tWrap && window.getComputedStyle(tWrap).display !== 'none' && window.getComputedStyle(tWrap).opacity !== '0') {
+    if (typeof gsap !== 'undefined') {
+      gsap.to(tWrap, {
+        opacity: 0,
+        duration: 0.4,
+        ease: 'power2.out',
+        onComplete: () => {
+          tWrap.style.display = 'none';
           tWrap.style.pointerEvents = 'none';
-          setTimeout(() => tWrap.style.display = 'none', 300);
-        }, 50);
-      }
+        }
+      });
+    } else {
+      tWrap.style.display = 'none';
     }
   }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', revealPage);
-  } else {
-    revealPage();
-  }
-})();
+}, 1200);
 </script>
 
 
