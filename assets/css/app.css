@@ -1332,6 +1332,7 @@ html.has--menu-open .header {
   transition: background-color 0.25s var(--ease-smooth);
 }
 
+.accordion__details[open],
 .accordion__details.is--active {
   background-color: var(--pale-blue);
 }
@@ -1342,10 +1343,12 @@ html.has--menu-open .header {
   translate: 0 -0.5em 0;
 }
 
+.accordion__details[open] .accordion__content-inner,
 .accordion__details.is--active .accordion__content-inner {
-  opacity: 1;
-  translate: 0 0 0;
-  transition-delay: 0.1s;
+  opacity: 1 !important;
+  translate: 0 0 0 !important;
+  visibility: visible !important;
+  transition-delay: 0.05s;
 }
 
 .accordion__icon-plus {
@@ -1359,15 +1362,17 @@ html.has--menu-open .header {
   transition: opacity 0.2s var(--ease-smooth), transform 0.4s var(--ease-bounce);
 }
 
+.accordion__details[open] .accordion__icon-minus,
 .accordion__details.is--active .accordion__icon-minus {
-  opacity: 1;
-  transform: scale(1) rotate(0deg);
+  opacity: 1 !important;
+  transform: scale(1) rotate(0deg) !important;
   transition-delay: 0.025s;
 }
 
+.accordion__details[open] .accordion__icon-plus,
 .accordion__details.is--active .accordion__icon-plus {
-  opacity: 0;
-  transform: scale(0) rotate(-40deg);
+  opacity: 0 !important;
+  transform: scale(0) rotate(-40deg) !important;
   transition-delay: 0s;
 }
 
@@ -2169,16 +2174,17 @@ html.has--menu-open .header {
   }
 }
 
-/* Display switching between Desktop sidebar and Mobile filter */
-@media screen and (min-width: 992px) {
-  .is--faq .filter {
-    display: none;
-  }
+/* Legacy filter bar permanently hidden */
+.is--faq .filter {
+  display: none !important;
 }
 
 @media screen and (max-width: 991px) {
   .is--faq .faq__nav {
-    display: none;
+    display: none !important;
+  }
+  .is--faq .faq__inner {
+    width: 100% !important;
   }
 }
 
