@@ -943,25 +943,25 @@ function runPageOnceAnimation(next) {
     })
   }
 
-  // 1. Muzi Logo Spring In
+  // 1. Muzi Logo Spring In (snappy, energetic 0.05s -> 0.42s)
   tl.to(transitionLogo, {
     scale: 1,
     rotate: 0,
     autoAlpha: 1,
-    duration: 0.45,
-    ease: "elastic.out(1, 0.75)",
+    duration: 0.38,
+    ease: "back.out(1.5)",
   }, 0.05);
 
-  // 2. Muzi Logo Spin & Shrink Out (0.52s -> 0.80s)
+  // 2. Muzi Logo Spin & Shrink Out (0.44s -> 0.68s)
   tl.to(transitionLogo, {
     scale: 0,
-    rotate: 35,
+    rotate: 25,
     autoAlpha: 0,
-    duration: 0.28,
+    duration: 0.24,
     ease: "power2.in",
-  }, 0.52);
+  }, 0.44);
 
-  // 3. Violet Wave Curve sweeps open in unison
+  // 3. Violet Wave Curve sweeps open in unison (0.44s -> 0.70s)
   tl.to(transitionSVGPath, {
     keyframes: {
       "95%": {
@@ -972,36 +972,36 @@ function runPageOnceAnimation(next) {
         drawSVG: '100% 100%',
       },
     },
-    duration: 0.35,
+    duration: 0.28,
     ease: "circ.out",
-  }, 0.52);
+  }, 0.44);
 
-  // 4. Immediately dissolve the transition curtain so site reveals with ZERO delay!
+  // 4. Instantly dissolve the transition curtain as logo shrinks (0.46s -> 0.66s)
   tl.to(transitionWrap, {
     opacity: 0,
-    duration: 0.24,
+    duration: 0.20,
     ease: "power2.out",
     onComplete: () => {
       transitionWrap.style.display = "none";
       transitionWrap.style.pointerEvents = "none";
     }
-  }, 0.56);
+  }, 0.46);
 
-  // 5. Header drops down smoothly right as icon leaves
+  // 5. Header drops in simultaneously at 0.45s
   tl.to(header, {
     yPercent: 0,
-    duration: 0.35,
+    duration: 0.30,
     ease: "power2.out",
-  }, 0.54);
+  }, 0.45);
 
-  // 6. Home Page elements reveal
+  // 6. Home Page elements reveal smoothly with zero delay (0.45s -> 0.70s)
   if (introHome) {
     if (window.matchMedia("(min-width: 992px)").matches) {
       tl.to(introHomeBg, {
         clipPath: "ellipse(150% 130% at 100% 100%)",
-        duration: 0.55,
+        duration: 0.45,
         ease: "circ.out",
-      }, 0.54);
+      }, 0.45);
     }
 
     tl.to(introHomeTitleSplit.words, {
@@ -1026,23 +1026,23 @@ function runPageOnceAnimation(next) {
           ease: "elastic.out(1,0.72)",
         },
       },
-      duration: 0.55,
-      stagger: 0.04,
-    }, 0.54);
+      duration: 0.45,
+      stagger: 0.03,
+    }, 0.45);
 
     tl.to(introHomeParagraph, {
       opacity: 1,
       y: "0em",
-      duration: 0.28,
+      duration: 0.24,
       ease: "power2.out",
-    }, 0.60);
+    }, 0.50);
 
     tl.to(introHomeButton, {
       opacity: 1,
       y: "0em",
-      duration: 0.28,
+      duration: 0.24,
       ease: "power2.out",
-    }, 0.64);
+    }, 0.52);
 
     tl.to(introHomeTextSplit.chars, {
       opacity: 1,
@@ -1050,16 +1050,16 @@ function runPageOnceAnimation(next) {
       x: "0em",
       y: "0em",
       ease: 'elastic.out(1, 0.75)',
-      duration: 0.45,
-      stagger: 0.01,
-    }, 0.60);
+      duration: 0.35,
+      stagger: 0.008,
+    }, 0.50);
 
     if (introHomeEasterEgg) {
       tl.to(introHomeEasterEgg, {
         opacity: 1,
-        duration: 0.25,
+        duration: 0.20,
         ease: "power2.out",
-      }, 0.64);
+      }, 0.52);
     }
 
     if (introHomeSequence) {
@@ -1067,9 +1067,9 @@ function runPageOnceAnimation(next) {
         opacity: 1,
         scale: 1,
         rotate: 0,
-        duration: 0.45,
+        duration: 0.35,
         ease: 'expo.out',
-      }, 0.64);
+      }, 0.52);
     }
 
     if (introHomeVisual) {
@@ -1077,26 +1077,26 @@ function runPageOnceAnimation(next) {
         opacity: 1,
         y: "0em",
         rotate: -21,
-        duration: 0.5,
+        duration: 0.42,
         ease: 'elastic.out(1, 0.72)',
-      }, 0.60);
+      }, 0.48);
     }
   }
 
-  // 7. Subpages (FAQ, Terms, Privacy, Contact) elements reveal
+  // 7. Subpages (FAQ, Terms, Privacy, Contact) elements reveal smoothly
   if (introFaq) {
     tl.to(introFaq, {
       y: "0em",
       opacity: 1,
-      duration: 0.35,
+      duration: 0.30,
       ease: "power2.out",
-    }, 0.54);
+    }, 0.45);
 
     tl.to(introFaqBg, {
       clipPath: "ellipse(150% 130% at 100% 100%)",
-      duration: 0.55,
+      duration: 0.45,
       ease: "circ.out",
-    }, 0.54);
+    }, 0.45);
 
     tl.to(introFaqTitleSplit.words, {
       keyframes: {
@@ -1120,39 +1120,39 @@ function runPageOnceAnimation(next) {
           ease: "elastic.out(1,0.72)",
         },
       },
-      duration: 0.55,
-      stagger: 0.04,
-    }, 0.54);
+      duration: 0.45,
+      stagger: 0.03,
+    }, 0.45);
 
     tl.to(introFaqParagraph, {
       opacity: 1,
       y: "0em",
-      duration: 0.28,
+      duration: 0.24,
       ease: "power2.out",
-    }, 0.60);
+    }, 0.50);
 
     if (introFaqEasterEgg) {
       tl.to(introFaqEasterEgg, {
         opacity: 1,
-        duration: 0.25,
+        duration: 0.20,
         ease: "power2.out",
-      }, 0.64);
+      }, 0.52);
     }
 
     if (introFaqContent) {
       tl.to(introFaqContent, {
         y: "0em",
         opacity: 1,
-        duration: 0.35,
+        duration: 0.30,
         ease: "power2.out",
-      }, 0.60);
+      }, 0.50);
     }
   }
 
   tl.call(() => {
     resetPage(next);
     scrollToInitialHash(next);
-  }, null, 0.82);
+  }, null, 0.68);
 
   tl.eventCallback("onComplete", () => {
     if (transitionWrap) {

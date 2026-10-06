@@ -1052,7 +1052,7 @@ img.pop-up__button-svg {
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.1.2/dist/umd/index.min.js"></script>
 
 <!-- Local Production Core Bundle -->
-<script src="assets/js/app.js"></script>
+<script src="assets/js/app.js?v=2.2.0"></script>
 <script id="benefits-interactive-hover">
 (function() {
   function setupBenefitsHover() {
@@ -1077,20 +1077,20 @@ img.pop-up__button-svg {
 </script>
 
 <script>
-// Scroll restoration & graceful fallback watchdog for home opening animation
+// Scroll restoration & instant fallback watchdog for page opening
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
 window.scrollTo(0, 0);
 
-// Safety watchdog: In case network stalls any asset, smoothly dismiss transition curtain after 3.2s
+// Instant safety watchdog: Guarantees transition curtain is 100% dismissed by 850ms with ZERO delay
 setTimeout(() => {
   const tWrap = document.querySelector('[data-transition-wrap]');
-  if (tWrap && window.getComputedStyle(tWrap).display !== 'none' && window.getComputedStyle(tWrap).opacity !== '0') {
+  if (tWrap && window.getComputedStyle(tWrap).display !== 'none') {
     if (typeof gsap !== 'undefined') {
       gsap.to(tWrap, {
         opacity: 0,
-        duration: 0.4,
+        duration: 0.2,
         ease: 'power2.out',
         onComplete: () => {
           tWrap.style.display = 'none';
@@ -1099,9 +1099,10 @@ setTimeout(() => {
       });
     } else {
       tWrap.style.display = 'none';
+      tWrap.style.pointerEvents = 'none';
     }
   }
-}, 1200);
+}, 850);
 </script>
 
 
